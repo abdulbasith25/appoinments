@@ -11,3 +11,8 @@ app = FastAPI(title="Doctor Appointment API")
 app.include_router(patients.router)
 app.include_router(doctors.router)
 app.include_router(appointments.router)
+
+
+@app.get("/")
+def home():
+    return {"message": "FastAPI deployed successfully!"}
