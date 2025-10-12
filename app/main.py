@@ -1,7 +1,18 @@
 from fastapi import FastAPI
 from . import models
 from .database import engine
-from .routers import patients, doctors, appointments
+from .routers import (
+    patients,
+    doctors,
+    appointments,
+    # departments,
+    users,
+    feedback,
+    payments,
+    doctor_availability,
+    medical_records,
+    appointment_status
+)
 
 models.Base.metadata.create_all(bind=engine)  # Create tables
 
@@ -11,7 +22,7 @@ app = FastAPI(title="Doctor Appointment API")
 app.include_router(patients.router)
 app.include_router(doctors.router)
 app.include_router(appointments.router)
-app.include_router(departments.router)
+# app.include_router(departments.router)
 app.include_router(users.router)
 app.include_router(feedback.router)
 app.include_router(payments.router)
