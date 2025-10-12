@@ -5,7 +5,8 @@ from .routers import (
     patients,
     doctors,
     appointments,
-    # departments,
+    departments,
+    auth,
     users,
     feedback,
     payments,
@@ -22,13 +23,14 @@ app = FastAPI(title="Doctor Appointment API")
 app.include_router(patients.router)
 app.include_router(doctors.router)
 app.include_router(appointments.router)
-# app.include_router(departments.router)
+app.include_router(departments.router)
 app.include_router(users.router)
 app.include_router(feedback.router)
 app.include_router(payments.router)
 app.include_router(doctor_availability.router)
 app.include_router(medical_records.router)
 app.include_router(appointment_status.router)
+app.include_router(auth.router)
 
 
 @app.get("/")
