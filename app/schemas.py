@@ -12,7 +12,8 @@ class PatientOut(BaseModel):
     name: str
     email: str
     class Config:
-        orm_mode = True
+        from_attributes = True
+
 
 # Doctor
 class DoctorCreate(BaseModel):
@@ -24,7 +25,8 @@ class DoctorOut(BaseModel):
     name: str
     specialty: Optional[str]
     class Config:
-        orm_mode = True
+        from_attributes = True
+
 
 # Appointment
 class AppointmentCreate(BaseModel):
@@ -39,7 +41,7 @@ class AppointmentOut(BaseModel):
     time: datetime
     done: bool
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class AppointmentStatusBase(BaseModel):
     status: str
@@ -51,7 +53,7 @@ class AppointmentStatusCreate(AppointmentStatusBase):
 class AppointmentStatusOut(AppointmentStatusBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class UserBase(BaseModel):
@@ -65,7 +67,7 @@ class UserCreate(UserBase):
 class UserOut(UserBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class DepartmentBase(BaseModel):
     name: str
@@ -77,7 +79,7 @@ class DepartmentCreate(DepartmentBase):
 class DepartmentOut(DepartmentBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -95,7 +97,7 @@ class FeedbackOut(FeedbackBase):
     id: int
     created_at: datetime
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -111,7 +113,7 @@ class PaymentCreate(PaymentBase):
 class PaymentOut(PaymentBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -127,7 +129,7 @@ class DoctorAvailabilityCreate(DoctorAvailabilityBase):
 class DoctorAvailabilityOut(DoctorAvailabilityBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -144,4 +146,4 @@ class MedicalRecordOut(MedicalRecordBase):
     id: int
     created_at: datetime
     class Config:
-        orm_mode = True
+        from_attributes = True
